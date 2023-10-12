@@ -1,0 +1,190 @@
+SEARCH IN PHP:
+
+php
+require_once("connect.php");
+?>
+<form action="" method="post">
+    <input type="text" name="nm">
+    <input type="submit" name="s" value="search">
+</form>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+    </tr>
+    <?php
+    if(isset($_POST['s'])){
+        $nm=$_POST['nm'];
+        $qry="select * from users where name='$nm'";
+        $res=mysqli_query($cn,$qry);
+        if($res){
+            while($row=mysqli_fetch_row($res)){
+        
+    
+    ?>
+    <tr>
+        <td><?php echo $row[0]; ?></td>
+        <td><?php echo $row[1]; ?></td>
+    </tr>
+    <?php
+            }
+        }
+    }
+?>
+</table>
+
+UNIX:
+
+2. Write a shell script to find all prime numbers in a given range.  
+  
+#1/bin/bash  # prime numbers.   
+echo "Enter the starting number:"  read 
+start   
+echo "Enter the ending number:"  read 
+end   
+# Find all prime numbers in the given range.   for ((i=$start; i<=$end; i++)); do  is_prime=1   for ((j=2; j<=§i/2; j++)); do  if [ $((i%j)) -eq 0 ]; then   is_prime=0  break   
+fi   
+done  if [ Sis_prime -eq 1 
+]; then  echo "$i"   
+fi   
+
+4)Write a shell script to find sum of digits of a number.  
+  
+# Sum of digits of a number.   
+echo "Enter a number:"  read number  sum=0   while [ Snumber -gt 0]; do  digit=$((number %10))  sum=$((sum + digit))  number=$((number / 10))  done   
+# Print the sum of digits.  echo 
+"The sum of digits is $sum."  
+
+
+ 5)Write a shell script to print fibonacci series upto entered value.  
+  
+# Program for Fibonacci  N=6  a=0  b=1  echo "The Fibonacci 
+series is : "  for ((i=0; i<N; i++))  
+do  echo-n"$a"   fn=$((a + b))  a=$b  b=$fn   
+done  
+
+
+8. Write a shell script that accepts two files are identical or not  # Check if the number of arguments is not equal to 2   if ["$#" -ne 2 ]; then  echo 
+"Usage: $0 filel file2"  exit 
+1   
+fi   
+file1="$1"  file2="$2"   
+# Check if both files exist  if[1-e"S$file1"] || [!-e"$file2"]; then  echo "One or both 
+files do not exist."   exit 1   
+fi   
+# Compare the files using the cmp command   
+if cmp -s "Sfile1l" "$file2"; then  echo "The files $file1 and $file2 are identical."  else  echo "The files $filel and $file2 are not identical."   
+Fi  
+
+
+
+ 9)Write a shell script to find total number of characters, words and lines of a file. (Do not use wc   
+command.   
+cat <<EOL > your_file.txt   
+This is a sample file.   
+It contains multiple lines of text.   
+Counting characters, words, and lines in this file.  EOL  char_count=0  word_count=0  
+line_count=0  while IFS= read -r line; do  char_count=5$((char_count + ${#line}))  words=(Sline)  word_count=$((word_count + 
+${#words[@]}))   
+((line_count++))  done < your_file.txt  echo "Total characters: Schar_count"  echo "Total words: Sword_count"  
+echo "Total lines: $line_count"  
+
+
+
+
+ 13)Write a shell script to find total number of occurrences of SDJIC in given file. (Please provide necessary  validations)   
+  
+# Prompt the user for the filename   read -p "Enter the filename: " filename   
+# Check if the file exists  if [ 1 -f "Sfilename" ]; then  # If the file doesn't exist, create it  touch 
+"$filename"  echo "File 
+'$filename’ created."   
+fi   
+# Count occurrences of “SDJIC" in the file  occurrences=$(grep 
+-o -w "SDJIC" "Sfilename" | wc -1)   
+# Display the result   echo "Total occurrences of 'SDJIC' in 'Sfilename': Soccurrences"   
+
+
+
+15.	Write a shell script to display all the lines from a file (11.txt), which starts with text “unix”. (not case  sensitive)   
+  
+echo "Unix is an operating system." > 11.txt  echo "UNIX is versatile." >> 11.txt  echo "Linux is built on Unix principles." >> 11.txt  echo "UNIX-like systems include macOS." >> 11.txt  echo "Windows is not Unix-based." >> 11.txt  filename="11.txt"  if [ | -f "Sfilename" ]; then  echo "File '$filename’ not found."   
+exit 1   
+fi   
+grep -i "Munix" "Sfilename"  
+
+
+
+
+16.	Write grep command to perform following actions:   
+a.	Count number of blank lines in file f1.txt   
+b.	print all lines containing sdjic   
+c.	print the lines that start with sdjic.   
+d.	Search the files in CCROGRAMS directory which has the string "include"   
+e.	print lines having exactly 50 characters in file f1.txt   
+f.	Count number of blank lines in file f1.txt   
+g.	Display lines having at least one characters in file f1.txt   
+h.	Display lines having sdjic text in any case in file f1.txt   
+i.	Display line of file f1.txt having exactly 3 characters   
+j.	Display lines of file f1.txt which begin with any alphabet   
+k.	Display lines whose last word is “UNIX” in file f1.txt   I. Display filenames having last character as digit [0-9]   
+m.	Display list of filenames that only consist digits   
+n.	Display line of file f1.txt which only consist digits   
+o.	Display lines of file f1.txt which only consist capital alphabets   
+p.	Search all lines in file f1.txt which ends with “”   
+
+
+Ans. a) grep -c 'A$' fl.txt   
+Ans. b) grep 'sdjic' f1.txt   
+Ans. c) grep 'Asdjic' f1.txt   
+Ans. d) grep -rl 'include’ CPROGRAMS/  
+Ans. E) grep -E 'A.{50}$' fL.txt   
+
+Ans. F) grep - 'AS$' fl.txt   
+Ans. G) grep "' fl.txt   
+Ans. H) grep -i 'sdjic' fl.txt   
+Ans. 1) grep 'A...$" f1.txt   
+Ans. J) grep 'A[A-Za-z]' fl.txt   
+Ans. K) grep "\<UNIXS' f1.txt   
+Ans. L) Is | grep '[0-9]$'   
+Ans. M) Is | grep 'A[0-9]*$'   
+Ans. N) grep 'M[0-9]*$" f1.txt   
+Ans. O) grep 'M[A-Z]*$' fl.txt   
+Ans. P) grep '\.$' fl.txt   
+
+
+
+17. Write sed command to perform following tasks   
+a.	To print only the last line of f1.txt   
+b.	To print line number 1-3, 6-7 and 10 of f1.txt   
+c.	To print lines beginning with SDJIC of f1.txt   
+d.	Print three lines starting from the fourth line of f1.txt   
+e.	Print all blank lines of file f1.txt   
+f.	Print lines having either of “sdjic” or “sdjyc”   
+g.	Lines beginning with either alphabet or digit   
+h.	To insert a line “additional line” before every line   
+i.	To replace every occurrence of | with : of first three lines   
+j.	To replace every occurrence of “|” with “:” of every line   
+k.	To remove all the lines having word “fail” from file f1.txt (delete command)   
+
+
+sed-n'1,3p;6,7p;10p' fl.txt   
+sed-n'/ASDIIC/p' fl.txt   
+d)	sed-n'/AS/p' flixt   
+e)	sed -n'/sdjic\|sdjyc/p' fl.txt   
+f)	sed-n'/A[A-Za-z0-9]/p' f1.txt  
+ g)	sed's/A/additional line\n/' f1.txt   
+h)	sed'1,3s/|/:/g' fl.txt   
+i)	sed's/|/:/g' fl.txt   
+sed'/fail/d' fl.txt   
+
+
+1. Write a shell script to find greatest amongst three number  
+  
+#1/bin/bash   
+# This shell script finds the greatest three numbers.   echo "Enter the first number:"  read numl  echo "Enter the second number:"  read num2  echo "Enter the third number:"  read num3  if [ Snum1 -gt Snum2 ] 
+&& [ $num1 -gt Snum3 J; then  greatest=Snum1  elif [ Snum2 -gt Snum1] && [ Snum2 -gt Snum3 J; then  greatest=Snum2   
+else   
+greatest=Snum3   
+fi   
+echo "The greatest number is Sgreatest."  
+   
